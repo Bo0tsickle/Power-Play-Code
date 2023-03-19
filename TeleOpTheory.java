@@ -50,8 +50,10 @@ public class TeleOpTheory extends LinearOpMode {
         motor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         motor.setPower(power);
     }
+
     @Override
-    public void runOpMode(){
+
+    public void getHardwareMap() {
         motorFrontRight  = hardwareMap.get(DcMotor.class, "motorFrontRight");
         motorFrontLeft  = hardwareMap.get(DcMotor.class, "motorFrontLeft");
         motorBackRight  = hardwareMap.get(DcMotor.class, "motorBackRight");
@@ -64,7 +66,10 @@ public class TeleOpTheory extends LinearOpMode {
         backGrip = hardwareMap.get(Servo.class, "backGrip");
         backFlip = hardwareMap.get(Servo.class, "backFlip");
         backTurn = hardwareMap.get(Servo.class, "backTurn");
-        
+    }
+
+    public void runOpMode(){
+        getHardwareMap();
         leftArm.setDirection(DcMotor.Direction.REVERSE);
         motorBackRight.setDirection(DcMotor.Direction.REVERSE);
         leftArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
