@@ -68,15 +68,18 @@ public class TeleOpTheory extends LinearOpMode {
         backTurn = hardwareMap.get(Servo.class, "backTurn");
     }
 
-    public void runOpMode(){
-        getHardwareMap();
+    public void setDirection() {
         leftArm.setDirection(DcMotor.Direction.REVERSE);
         motorBackRight.setDirection(DcMotor.Direction.REVERSE);
         leftArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rightArm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        
+    }
+    
+    public void runOpMode(){
+        getHardwareMap();
+        setDirection();
         waitForStart();
         while (opModeIsActive()){
             double y = -gamepad1.left_stick_y;
