@@ -67,7 +67,6 @@ public class TeleOpTheory extends LinearOpMode {
         backFlip = hardwareMap.get(Servo.class, "backFlip");
         backTurn = hardwareMap.get(Servo.class, "backTurn");
     }
-
     public void setDirection() {
         leftArm.setDirection(DcMotor.Direction.REVERSE);
         motorBackRight.setDirection(DcMotor.Direction.REVERSE);
@@ -76,7 +75,6 @@ public class TeleOpTheory extends LinearOpMode {
         leftArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
-    
     public void runOpMode(){
         getHardwareMap();
         setDirection();
